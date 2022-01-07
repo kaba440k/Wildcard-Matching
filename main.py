@@ -2,33 +2,33 @@ import time
 
 
 def main():
-    s_sample = list(input())
-    p_sample = list(input())
+    user_input = list(input())
+    pattern = list(input())
     flag = True
     counter = 0
     start_time = time.time()
-    for symbol in s_sample:
-        if len(p_sample) == 0:
+    for symbol in user_input:
+        if len(pattern) == 0 or pattern > user_input:
             flag = False
             break
-        if p_sample[0] == symbol or p_sample[0] == "?" or p_sample[0] == "*" and flag:
-            if p_sample[0] == "*":
-                if len(p_sample) == 1:
+        if pattern[0] == symbol or pattern[0] == "?" or pattern[0] == "*" and flag:
+            if pattern[0] == "*":
+                if len(pattern) == 1:
                     flag = True
                     break
-                elif p_sample[1] == "?" or p_sample[1] == "*":
+                elif pattern[1] == "?" or pattern[1] == "*":
                     flag = True
-                elif p_sample[1] != "?" and p_sample[1] != "*":
+                elif pattern[1] != "?" and pattern[1] != "*":
                     flag = False
-                    while symbol != p_sample[1] and flag is False and counter + 2 != len(s_sample):
-                        if counter + 2 > len(s_sample):
+                    while symbol != pattern[1] and flag is False and counter + 2 != len(user_input):
+                        if counter + 2 > len(user_input):
                             flag = False
                             break
-                        symbol = s_sample[counter + 2]
-                        s_sample.pop(counter)
+                        symbol = user_input[counter + 2]
+                        user_input.pop(counter)
                     else:
                         flag = True
-            p_sample.pop(0)
+            pattern.pop(0)
             counter += 1
         else:
             flag = False
