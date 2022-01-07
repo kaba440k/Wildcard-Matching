@@ -1,8 +1,12 @@
+import time
+
+
 def main():
     s_sample = list(input())
     p_sample = list(input())
     flag = True
     counter = 0
+    start_time = time.time()
     for symbol in s_sample:
         if len(p_sample) == 0:
             flag = False
@@ -31,7 +35,7 @@ def main():
             break
 
     print(flag)
-
+    print("--- %s seconds ---" % (time.time() - start_time))
 
 
 if __name__ == "__main__":
