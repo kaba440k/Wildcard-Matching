@@ -18,7 +18,7 @@ def main():
                     break
                 elif p_sample[1] == "?" or p_sample[1] == "*":
                     flag = True
-                elif p_sample[1] != "?":
+                elif p_sample[1] != "?" and p_sample[1] != "*":
                     flag = False
                     while symbol != p_sample[1] and flag is False and counter + 2 != len(s_sample):
                         if counter + 2 > len(s_sample):
